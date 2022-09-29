@@ -2,7 +2,7 @@
 
 <odoo>
 
-    <odoo>
+    
     <record id="report_post_view_paper" model="report.paperformat">
         <field name="name">Avenue Invoice</field>
         <field name="default" eval="True"/>
