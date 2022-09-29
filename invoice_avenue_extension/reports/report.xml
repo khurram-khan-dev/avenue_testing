@@ -5,6 +5,7 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <!--                <t t-call="web.external_layout">-->
+
                 <div class="header" style="font-size:0.8rem;">
                     
                     
@@ -19,17 +20,17 @@
                       </div>
 
                      
-                      <br></br>
-                      <br></br>
-                      <br></br>
-                      <br></br>
-                      <br></br>
-                      <br></br>
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
                       
                       
                         
                       <div class="row p-2">
-                        <div class="col-4"></div>
+                        <div class="col-4"/>
                         <div class="col-7" style="color:#432CC5;">
                           <h2>Quotation For Purchase </h2>
                         </div>
@@ -37,47 +38,47 @@
                       
                       
                       <div class="row p-2">
-                        <div class="col-8"></div>
+                        <div class="col-8"/>
                         <div class="col-4" style="font-size:20px;">
                           Date: <t if="o.invoice_date" t-raw="o.invoice_date"/>
                         </div>
                       </div>
 
                       <div class="row p-2">
-                        <div class="col-8"></div>
+                        <div class="col-8"/>
                         <div class="col-4" style="font-size:20px;">
                           Ref: <t if="o.internal_ref" t-raw="o.internal_ref"/>
                         </div>
                       </div>
                       
-                      <div class="row p-2"  style="background-color:#0052cc;">
+                      <div class="row p-2" style="background-color:#0052cc;">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-8" style="font-size:20px;color:white;">
                           Purchase's Details
                         </div>
                         
                       </div>
                       
-                      <br></br>
+                      <br/>
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Name:&#160;&#160;&#160;<t if="o.partner_id.name" t-raw="o.partner_id.name"/>
+                          Name:   <t if="o.partner_id.name" t-raw="o.partner_id.name"/>
                         </div>
                         <!--<div class="col-1"></div>-->
-                        <div class="col-5" style="font-size:20px;">
-                          Employee Name: _______________________
+                        <div class="col-6" style="font-size:20px;">
+                          Employee Name: ______________________
                         </div>
                       </div>
                       
 
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
-                          Address: &#160;&#160;&#160;<t if="o.partner_id" t-raw="o.partner_id.contact_address_complete"/>
+                          Address:    <t if="o.partner_id" t-raw="o.partner_id.contact_address_complete"/>
                         </div>
                         
                       </div>
@@ -85,46 +86,46 @@
                    
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Project:&#160;&#160;&#160;<t if="o.project_name" t-raw="o.project_name"/>
+                          Project:   <t if="o.project_name" t-raw="o.project_name"/>
                         </div>
                         <!--<div class="col-1"></div>-->
                         <div class="col-5" style="font-size:20px;">
-                          City:&#160;&#160;&#160;<t if="o.partner_id" t-raw="o.partner_id.city"/>
+                          City:   <t if="o.partner_id" t-raw="o.partner_id.city"/>
                         </div>
                       </div>
                       
                    
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Unit Size:&#160;&#160;&#160;<t if="o.plot_size" t-raw="o.plot_size"/>
+                          Unit Size:   <t if="o.plot_size" t-raw="o.plot_size"/>
                         </div>
                         <!--<div class="col-1"></div>-->
-                        <div class="col-5" style="font-size:20px;">
-                          Unit Type: _______________________
+                        <div class="col-6" style="font-size:20px;">
+                          Unit Type: _________________________
                         </div>
                       </div>
                       
-                      <br></br>
+                      <br/>
                       
-                      <div class="row p-2"  style="background-color:#0052cc;">
+                      <div class="row p-2" style="background-color:#0052cc;">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-8" style="font-size:20px;color:white;">
                           Payment's Details
                         </div>
                         
                       </div>
                       
-                      <br></br>
+                      <br/>
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
-                          Cost Payable:&#160;&#160;&#160;<t if="o.cost" t-raw="o.cost"/>
+                          Cost Payable:   <t if="o.cost" t-raw="o.cost"/>
                         </div>
                         
                       </div>
@@ -132,27 +133,27 @@
                  
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Additional Cost:&#160;&#160;&#160;<t if="o.additional_price" t-raw="o.additional_price"/>
+                          Additional Cost:   <t if="o.additional_price" t-raw="o.additional_price"/>
                         </div>
                         <!--<div class="col-1"></div>-->
                         <div class="col-5" style="font-size:20px;">
-                          Additional Detail:&#160;&#160;&#160;<t if="o.ref" t-raw="o.ref"/>
+                          Additional Detail:   <t if="o.ref" t-raw="o.ref"/>
                         </div>
                       </div>
                       
                     
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
                           <t t-if="o.discount_builder">
-                              Discount By Builder:&#160;&#160;&#160;<t if="o.discount_builder" t-raw="o.discount_builder"/>
+                              Discount By Builder:   <t if="o.discount_builder" t-raw="o.discount_builder"/>
                           </t>
                                     
                           <t t-if="not o.discount_builder">
-                              Discount By Avenue:&#160;&#160;&#160;<t if="o.invoice_line_ids[0].price_subtotal" t-raw="o.invoice_line_ids[0].price_subtotal"/>
+                              Discount By Avenue:   <t if="o.invoice_line_ids[0].price_subtotal" t-raw="o.invoice_line_ids[0].price_subtotal"/>
                           </t>
                         </div>
                         
@@ -161,29 +162,29 @@
                 
                       
                       <div class="row p-2">
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
                           Total Payable: __________________________
                         </div>
                         
                       </div>
                       
-                      <br></br>
+                      <br/>
                       
-                      <div class="row p-2"  style="background-color:#0052cc;">
+                      <div class="row p-2" style="background-color:#0052cc;">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-8" style="font-size:20px;color:white;">
                           Deposit Schedule
                         </div>
                         
                       </div>
                       
-                      <br></br>
+                      <br/>
                       
                       <div class="row p-2">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-4" style="font-size:20px;">
                           Payment Type
                         </div>
@@ -199,76 +200,76 @@
                       
                       <div class="row p-2">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-3" style="font-size:20px;">
                           Token
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         
                       </div>
                       
                       <div class="row p-2">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-3" style="font-size:20px;">
                           1st Deposit
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         
                       </div>
                       
                       <div class="row p-2">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-3" style="font-size:20px;">
                           2nd Deposit
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         
                       </div>
                       
                       <div class="row p-2">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-3" style="font-size:20px;">
                           3rd Deposit
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         <div class="col-4" style="font-size:20px;">
-                          &#160;&#160;___________________________
+                            ___________________________
                         </div>
                         
                       </div>
-                      <br></br>
-                      <br></br>
-                      <br></br>
+                      <br/>
+                      <br/>
+                      <br/>
                       
                       <div class="row p-2">
                         
-                        <div class="col-1"></div>
+                        <div class="col-1"/>
                         <div class="col-10" style="font-size:20px;">
                           <p style="font-weight:200;"> <t if="o.company_id" t-raw="o.company_id.street"/> <t if="o.company_id" t-raw="o.company_id.street2"/> <t if="o.company_id" t-raw="o.company_id.city"/> <t if="o.company_id" t-raw="o.company_id.state_id.name"/> <t if="o.company_id" t-raw="o.company_id.zip"/> <t if="o.company_id" t-raw="o.company_id.country_id.name"/>
-                          <br></br>
-                          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                          <br/>
+                                              
                           <t if="o.company_id" t-raw="o.company_id.website"/>
-                          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                              
                           <t if="o.company_id" t-raw="o.company_id.phone"/>
                           </p>
                         </div>
@@ -277,6 +278,11 @@
                       </div>
                       
                 </div>
+                  <!--                </t>-->
+
+
+
+
                   <!--                </t>-->
             </t>
         </t>
