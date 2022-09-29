@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+
+
+    <report
+            id="avenue_invoice_report"
+            string="Avenue Invoice"
+            model="account.move"
+            report_type="qweb-pdf"
+            name="invoice_avenue_extension.avenue_invoice_report_id"
+            file="invoice_avenue_extension.avenue_invoice_report_id"/>
+
+
+</odoo>

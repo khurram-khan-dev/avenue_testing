@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<t t-name="invoice_avenue_extension.avenue_invoice_report_id">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <!--                <t t-call="web.external_layout">-->
+                <div class="header" style="font-size:0.8rem;">
+                    
+                    
+                      <div class="row p-2">
+                        
+                        <div class="col-2">
+                          <img t-if="o.company_id.logo_web" t-att-src="image_data_uri(o.company_id.logo_web)" style="position:absolute;top:-5px;left:-25px;width:160pt;height:92pt;" alt="company logo"/>
+                          
+                        </div>
+                        
+                      </div>
+                </div>
+                  <!--                </t>-->
+            </t>
+        </t>
+
+
+
+
+    </t>
+
+

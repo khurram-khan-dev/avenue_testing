@@ -1,0 +1,72 @@
+<odoo>
+    <record id="sq_ext_field" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+        
+
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+
+                        <field name="project_name" />
+                        <field name="plot_size" />
+                        <field name="internal_ref" />
+                        <field name="price" />
+                    
+            </xpath>
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+
+                        <field name="additional_price" />
+                        <field name="discount_builder" />
+                        <field name="cost" />
+                        
+                        <field name="gross_amount" />
+                        
+                    
+            </xpath>
+
+            <xpath expr="//label[@for='amount_total']" position="attributes">
+
+                        <attribute name="string">Commision Amount</attribute>
+
+            </xpath>
+
+            <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+
+                        <attribute name="string">Discount By Avennue</attribute>
+
+            </xpath>
+
+            
+        </field>
+    </record>
+
+    <!-- <record id="view_order_product_pivot_inher" model="ir.ui.view">
+        <field name="name">sale.report.pivot.inher</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale_enterprise.sale_report_view_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_subtotal']" position="after">
+
+                <field name="project_name" type="col" />
+
+            </xpath>
+        </field>
+   </record> -->
+
+
+   <record model="ir.ui.view" id="view_order_product_pivot_inher">
+    <field name="name">sale.report.pivot.inher</field>
+    <field name="model">sale.report</field>
+    <field name="inherit_id" ref="sale_enterprise.sale_report_view_pivot"/>
+    <field name="arch" type="xml">
+        <pivot position="inside">
+            <field name="project_name" type="col" />
+
+        </pivot>
+    </field>
+</record>
+
+</odoo>

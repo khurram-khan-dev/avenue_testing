@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="avenue_invoice_report_id">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <!--                <t t-call="web.external_layout">-->
+                <div class="header" style="font-size:0.8rem;">
+                    
+                    
+                      <div class="row p-2">
+                        
+                        <div class="col-2">
+                          <img t-if="o.company_id.logo_web" t-att-src="image_data_uri(o.company_id.logo_web)" style="position:absolute;top:-5px;left:-25px;width:160pt;height:92pt;" alt="company logo"/>
+                          
+                        </div>
+                        
+                        <div class="col-7">
+                          <h3 style="font-size:24px; font-weight:900;">
+                            <t if="o.company_id" t-raw="o.company_id.name"/>
+                          </h3>
+                          
+                          <p style="font-weight:200;"> <t if="o.company_id" t-raw="o.company_id.street"/> <t if="o.company_id" t-raw="o.company_id.street2"/> <t if="o.company_id" t-raw="o.company_id.city"/> <t if="o.company_id" t-raw="o.company_id.state_id.name"/> <t if="o.company_id" t-raw="o.company_id.zip"/> <t if="o.company_id" t-raw="o.company_id.country_id.name"/>
+                          <br/>
+                          Phone: <t if="o.company_id" t-raw="o.company_id.phone"/>
+                          <br/>
+                          GST No: <t if="o.company_id" t-raw="o.company_id.partner_id.mew_gst"/> , NTN No: <t if="o.company_id" t-raw="o.company_id.partner_id.mew_ntn"/>
+                          </p>
+                          <!--<p>Phone: <t if="o.company_id" t-raw="o.company_id.phone"/></p>-->
+                        </div>
+                        
+                        <!--<div class="col-4">-->
+                          
+                        <!--</div>-->
+                        
+                        <div class="col-3 border border-dark">
+                          <div class="row" style="background-color:rgb(139, 139, 139); ">
+                            <h4 class="col-12 center" style="color:white; margin-top:10px; text-align:center;">
+                                <span>
+                                    PACKED
+                                </span>
+                            </h4>
+                          </div>
+                          
+                          <div class="row border-top border-dark font-weight-bolder">
+                            <h4 class="col-12 center" style="text-align:center; margin-top:10px; font-family: &quot;Times New Roman&quot;, Times, serif;">
+                                <span>
+                                    
+                                    <t t-if="o.move_type == 'entry'">
+                                      Journal Entry
+                                    </t>
+                                    <t t-if="o.move_type == 'out_invoice'">
+                                      Sale Invoice
+                                    </t>
+                                    <t t-if="o.move_type == 'out_refund'">
+                                      Sale Credit Note
+                                    </t>
+                                    <t t-if="o.move_type == 'in_invoice'">
+                                      Purchase Bill
+                                    </t>
+                                    <t t-if="o.move_type == 'in_refund'">
+                                      Purchase Credit Note
+                                    </t>
+                                    <t t-if="o.move_type == 'out_receipt'">
+                                      Sale Receipt
+                                    </t>
+                                    <t t-if="o.move_type == 'in_receipt'">
+                                      Purchase Receipt
+                                    </t>
+                                    
+                                </span>
+                            </h4>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="row border-top border-dark  p-2">
+                        
+                        <div class="col-7">
+                          <div class="row py-1">
+                            <div class="col-3">PARTY NAME:</div>
+                            <div class="col-9"><t if="o.partner_id" t-raw="o.partner_id.name"/></div>
+                          </div>
+                          <div class="row py-1">
+                          
+                            <div class="col-3">ADDRESS:</div>
+                            <div class="col-9"><t if="o.partner_id" t-raw="o.partner_id.contact_address_complete"/></div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-3">TELEPHONE #</div>
+                            <div class="col-9 "><t if="o.partner_id" t-raw="o.partner_id.phone"/></div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-3">MOBILE #</div>
+                            <div class="col-9 "><t if="o.partner_id" t-raw="o.partner_id.mobile"/></div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-3">NTN NUMBER:</div>
+                            <div class="col-3 "><t if="o.partner_id" t-raw="o.partner_id.customer_ntn"/></div>
+                            <div class="col-3">GST NUMBER:</div>
+                            <div class="col-3 "><t if="o.partner_id" t-raw="o.partner_id.mew_gst"/></div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-3">BROKER:</div>
+                            <div class="col-3 ">
+                              <!--<t if="o.partner_id" t-raw="o.partner_id.mobile"/>-->
+                              </div>
+                            <div class="col-3">REMARKS:</div>
+                            <div class="col-3 ">
+                              <!--<t if="o.origin" t-raw="o.origin"/>-->
+                              </div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-3">CNIC NUMBER:</div>
+                            <div class="col-4 "><t if="o.partner_id" t-raw="o.partner_id.customer_cnic"/></div>
+                          </div>
+                          
+                          
+                        </div>
+                        
+                      <div class="col-1"/>
+                        <div class="col-4 border border-dark">
+                          <div class="row py-1 mt-1">
+                            <div class="col-5">INVOICE #</div>
+                            <!--<div class="col-7 "><t if="o.name" t-raw="o.name"/></div>-->
+                            <div class="col-7 "><t if="o.product_class_prefix_invoice" t-raw="o.product_class_prefix_invoice "/><t if="o.name" t-raw="o.name[3:]"/></div>
+
+                          </div>
+                          <div class="row border-bottom border-dark py-1 mt-1">
+                            <div class="col-5">INV DATE #</div>
+                            <div class="col-7 "><t if="o.invoice_date" t-raw="o.invoice_date"/></div>
+                          </div>
+                          <div class="row py-1 mt-1">
+                            <div class="col-5">G.P NUMBER</div>
+                            <div class="col-7 "><t if="o.delivery_ids" t-raw="o.delivery_ids"/></div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-5">G.P DATE:</div>
+                            <div class="col-7 "><t if="o.dates_id" t-raw="o.dates_id"/></div>
+                          </div>
+                          
+                          <div class="row py-1">
+                            <div class="col-5">VEHICLE:</div>
+                            <div class="col-7 "><t if="o.vehicle_id" t-raw="o.vehicle_id"/></div>
+                          </div>
+                          <div class="row py-1">
+                            <div class="col-5"><t t-if="o.move_type[:2]=='in'">S</t><t t-if="o.move_type[:3]=='out'">S</t>.O NAME:</div>
+                            <div class="col-7"><t if="o.invoice_origin" t-raw="o.invoice_origin"/></div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+                      <!--<div class="row border-left border-right border-bottom border-dark">-->
+                      <div class="row border-bottom border-dark">
+
+                          <table class="col-12 table">
+                              <tr>
+                                  <th class="border-right border-top border-bottom border-dark" style="width:5%;">
+                                      S#
+                                  </th>
+                                  <th class="border-right border-top border-bottom border-dark" style="width:30%;">
+                                      Description of Goods
+                                  </th>
+                                  <th class="border-right border-top border-bottom border-dark">
+                                      QUANTITY
+                                  </th>
+                                  <th class="border-right border-bottom border-top border-dark">
+                                      Unit Price
+                                  </th>
+                                  <th class="border-right border-bottom border-top border-dark">
+                                      NET Weight
+                                  </th>
+                                  <th class="border-right border-bottom border-top border-dark">
+                                      Discount
+                                  </th>
+                                  
+                                  <th class="border-right border-bottom border-top border-dark">
+                                      Total Amount
+                                  </th>
+                                  <!--<th class="border-bottom border-top border-dark" >-->
+                                  <!--    Scheme @ amount-->
+                                  <!--</th>-->
+                                  <!-- <th class="border-bottom border-top border-dark"> -->
+                                      <!-- Gross Amount -->
+                                  <!-- </th> -->
+                              </tr>
+                              <t t-set="srn" t-value="1"/>
+                              
+                              <t t-set="total_freight" t-value="0"/>
+                              <t t-set="total_damage" t-value="0"/>
+                              <t t-set="gross_amount" t-value="0"/>
+                              <t t-set="tax_name" t-value=""/>
+                              <t t-set="disc_amount" t-value="0"/>
+
+                              
+                              
+                              <t t-set="total_quantity" t-value="0"/>
+                              <t t-set="gross_weight" t-value="0"/>
+                              <t t-set="net_weight" t-value="0"/>
+                              
+                              
+                                <t t-foreach="o.invoice_line_ids" t-as="ol">
+                                  <t t-if="ol.product_id.name == 'Freight Expense'">
+                                    <t t-set="total_freight" t-value="total_freight + ol.price_subtotal"/>
+                                  </t>
+                                    
+                                  <t t-elif="ol.product_id.name == 'Leakage and Damages Expense'">
+                                    <t t-set="total_damage" t-value="total_damage + ol.price_subtotal"/>
+                                  </t>
+                                  
+                                  <t t-else="">
+                                    
+                                      <tr>
+                                        <td class="border-right border-bottom border-dark">
+                                          <t t-raw="srn"/>
+                                          <t t-set="srn" t-value="srn + 1"/>
+                                        </td>
+                                      
+                                        <td class="border-right border-bottom border-dark">
+                                          <t if="ol.product_id.name" t-raw="ol.product_id.name"/>
+                                        </td>
+                                      
+                                        <td class="border-right border-bottom border-dark">
+                                          <t if="ol.quantity" t-raw="ol.quantity"/>
+                                          <t t-set="total_quantity" t-value="total_quantity + ol.quantity"/>
+                                          <t t-set="gross_weight" t-value="gross_weight + ol.product_id.weight*ol.quantity"/>
+                                          <t t-set="net_weight" t-value="net_weight + ol.transfer_weight"/>
+                                        </td>
+                                        
+                                        <td class="border-right border-bottom border-dark">
+                                          <!--<t if="ol.price_unit" t-raw="ol.price_unit" />-->
+                                          <span t-esc="'%.2f'%(ol.price_unit)"/>
+                                          <!--<t if="ol.catch_weight" t-raw="ol.catch_weight"/>-->
+                                        </td>
+                                      
+                                        <td class="border-right border-bottom border-dark">
+                                          <!-- <t if="ol.transfer_weight" t-raw="ol.transfer_weight"/> -->
+                                          <span t-esc="'%.2f'%(ol.transfer_weight)"/>
+                                        </td>
+
+                                        <span>
+                                          <td class="border-right border-bottom border-dark">
+                                            
+                                            <t if="ol.discount" t-raw="((ol.quantity*ol.price_unit) * ol.discount / 100)"/>
+                                            <t t-set="disc_amount" t-value="disc_amount + ((ol.quantity*ol.price_unit) * ol.discount / 100)"/>
+                                            <!--<t if="disc_amount" t-raw="disc_amount"/>-->
+                                          </td>
+                                        </span>
+                                      
+                                        <!-- <span>  -->
+                                        <!-- <td class="border-right border-bottom border-dark"> -->
+                                         
+                                          <!--<t t-set="tax_name" t-value=""/>-->
+                                          <!-- <t t-foreach="ol.tax_ids" t-as="tx"> -->
+                                            <!-- ( -->
+                                            <!-- <t if="tx.name" t-raw="tx.name"/> -->
+                                            <!-- ) -->
+                                            
+                                            <!-- <br/> -->
+                                            
+                                          <!-- </t> -->
+                                          
+                                        <!-- </td> -->
+                                        <!-- </span> -->
+                                      
+                                        
+                                      
+                                        <td class="border-right border-bottom border-dark">
+                                          <t if="ol.price_subtotal" t-raw="ol.price_subtotal"/>
+                                        </td>
+                                      
+                                      <!--<td class="border-right border-bottom border-dark">-->
+                                          <!--<t if="ol.catch_weight" t-raw="ol.catch_weight"/>-->
+                                      <!--</td>-->
+                                      
+                                         <!-- <td class="border-bottom border-dark"> -->
+                                          <!-- <t if="ol.price_total" t-raw="ol.price_total"/> -->
+                                        <!-- </td> -->
+                                       </tr>
+                                   
+                                  </t>
+                                  
+                                </t>
+  
+                          </table>
+                      </div>
+                      
+                      
+                
+                      <br/>
+                      <div class="row">
+                          <table class="col-sm-12 table" style="width:60%">
+                            
+                              <tr style="text-align:center;border-left-style: solid;">
+                                  <th class=" border-right border border-left-0 border-bottom-0 border-dark" style="font-size:15px;">
+                                      Total Product
+                                      <!--<t t-if="o.is_sale">Sale</t> <t t-if="not o.is_sale">Purchase</t>-->
+                                  </th>
+                                  
+                                  <th class="border-right border-dark border-bottom-0" style="font-size:15px;">
+                                      Total Quantity
+                                  </th>
+                              </tr>
+                              
+                              <tr style="text-align:center;border-left-style: solid;">
+                                <th class="border-right border-bottom border-top-0 border-dark" style="color: red;font-weight: 900;font-size:15px;">
+                                      <!--<t t-raw="total_quantity"/>-->
+                                      <t t-raw="srn-1"/>
+                                      <!--<t t-set="srn" t-value="srn + 1"/>-->
+                                </th>
+                                <th class="border-right border-bottom border-top-0 border-dark" style="color: red;font-weight: 900;font-size:15px;">
+                                      <t t-raw="total_quantity"/>
+                                </th>
+                              </tr>
+                              
+                              <tr style="text-align:center;border-left-style: solid;">
+                                <th class="border-right border-dark border-bottom-0" style="font-size:15px;">
+                                      Total Gross Weight
+                                </th>
+                                <th class="border-right border-dark border-bottom-0" style="font-size:15px;">
+                                      Total Net Weight
+                                </th>
+                              </tr>
+                              
+                              <tr style="text-align:center;border-left-style: solid;">
+                                <th class="border-right border-bottom border-top-0 border-dark" style="color: red;font-weight: 900;font-size:15px;">
+                                      <t t-raw="gross_weight"/>
+
+                                      <div style="color: blue;font-size:20px;" align="right">
+                                        KG
+                                      </div>
+                                </th>
+                                <th class="border-right border-bottom border-top-0 border-dark" style="color: red;font-weight: 900;font-size:15px;">
+                                      <!-- <t t-raw="net_weight"/> -->
+                                      <span t-esc="'%.2f'%(net_weight)"/>
+                                      <div style="color: blue;font-size:20px;" align="right">
+                                        KG
+                                      </div>
+                                </th>
+                              </tr>
+                              
+                              <tr>
+                                  <td colspan="3" style="height:100px; " valign="center">
+                                    <!--<div class="row">-->
+                                    <!--  <p class="col-12 right" style="text-align:right; font-size:20px;">١) خریدا ہوا مال واپس یا تبدیل نہیں ہوگا.-->
+                                    <!--  </p>-->
+                                    <!--</div>-->
+                                    
+<!--                                    <div class="row">-->
+<!--                                      <p class="col-12 right" style="text-align:right; font-size:20px;">-->
+<!--٢) ١٦ لیٹر اور ١٦ کلو ٹن میں لیکیج اور ڈیمیج کا کوئی بھی کلیم قبل قبول نہیں ہوگا.                                        -->
+<!--                                      </p>-->
+<!--                                    </div>-->
+                                    
+                                    <!--<div class="row">-->
+                                    <!--  <p class="col-12 right" style="text-align:right; font-size:20px;">-->
+                                    <!--    ٣) مال انلوڈ کرتے وقت گنتی کر کے اچھی طرح چیک کرلیں بعد میں کمپنی کسی بھی قسم کے لیکیج اور ڈیمیج یا کمی بیشی کی ذمہدار نہیں ہوگی. -->
+                                    <!--  </p>-->
+                                    <!--</div>-->
+                                      
+                                  </td>
+                              </tr>
+                              
+                              
+                              
+                              
+                              
+                              <!--    <th class=" border-dark border-bottom-0">-->
+                              <!--        Total Net Weight-->
+                              <!--    </th>-->
+                              <!--</tr>-->
+                              <!--<tr style="text-align:center;">-->
+                              <!--    <th class="border-right border-bottom border-top-0 border-dark">-->
+                              <!--        <t t-raw="total_quantity"/>-->
+                              <!--    </th>-->
+                                  
+                              <!--    <th class="border-right border-bottom border-top-0 border-dark">-->
+                                      
+                              <!--        <t t-raw="gross_weight"/>-->
+                              <!--    </th>-->
+                              <!--    <th class=" border-bottom border-dark border-top-0">-->
+                                      
+                              <!--        <t t-raw="net_weight"/>-->
+                              <!--    </th>-->
+                              <!--</tr>-->
+                              <!--<tr>-->
+                              <!--    <td colspan="3" style="height:100px; " valign="center">-->
+                              <!--        <p style="text-align:center; font-size:24px;">مال پورا اور صحیح حالت مین وصول کیا-->
+                              <!--        </p>-->
+                              <!--    </td>-->
+                              <!--</tr>-->
+                              <!--<tr>-->
+                              <!--    <td class="border-0">-->
+                              <!--        Driver Name: -->
+                                      <!--<t if="o.driver_name" t-raw="o.driver_name"/>-->
+                              <!--    </td>-->
+                              <!--    <td class="border-0">-->
+                              <!--        CNIC # -->
+                                      <!--<t if="o.driver_cnic" t-raw="o.driver_cnic"/>-->
+                              <!--    </td>-->
+                              <!--    <td class="border-0">-->
+                              <!--        Mobile #-->
+                                      <!--<t if="o.driver_mobile" t-raw="o.driver_mobile"/>-->
+                              <!--    </td>-->
+                              <!--</tr>-->
+  
+                          </table>
+                          
+                             
+                          <div style="border-left: 2px solid black;height: 500px;">
+                            
+                          </div>
+                          
+                          
+                          <!--<table class="col-sm-12 table" style="width:50%;">-->
+                          <!--  <tr style="text-align:center;">-->
+                          <!--    <td>-->
+                          <!--      hello-->
+                          <!--    </td>-->
+                          <!--    <td>-->
+                          <!--      world-->
+                          <!--    </td>-->
+                          <!--  </tr>-->
+                          <!--</table>-->
+                          
+                          <!--<table class="col-sm-12 table" style="width:50%;">-->
+                          
+                          <!--<div class="col-1"/>-->
+                          
+                           
+                          
+                            <table class="col-sm-12 table" style="width:20%;">
+                              
+                            <t t-set="gross_amount" t-value="o.amount_untaxed - (total_freight + total_damage)"/>
+                            
+                            
+                            
+                            <div class="col-5">
+                              
+                              <div class="row">
+                                <div class="col-6" style="font-weight:bold;">
+                                  Total Discount:
+                                </div> 
+                                <div class="col-5 text-right">
+                                  <t if="disc_amount" t-raw="disc_amount"/>
+                                    Rs.
+                                </div>
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-6" style="font-weight:bold;">
+                                  Untaxed Amount:
+                                </div> 
+                                <div class="col-5 text-right">
+                                  
+                                  <span t-esc="'{:,}'.format(gross_amount)"/>
+                                  
+                                  <!--<t if="gross_amount" t-raw="gross_amount"/>-->
+                                    Rs.
+                                </div>
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-6" style="font-weight:bold;">
+                                  Less: Leakage and Damages:
+                                </div> 
+                                <div class="col-5 text-right">
+                                  <t if="total_damage" t-raw="total_damage"/>
+                                    Rs.
+                                </div>
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-6" style="font-weight:bold;">
+                                  Less: Freight:
+                                </div> 
+                                <div class="col-5 text-right">
+                                  <t if="total_freight" t-raw="total_freight"/>
+                                    Rs.
+                                </div>
+                              </div>
+                            
+                            
+                            
+                            <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                              <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and o.amount_untaxed == amount_by_group[2]">
+                                <div class="row">
+                                  <div class="col-6" style="font-weight:bold;">
+                                    <t t-esc="amount_by_group[0]"/>
+                                  </div> 
+                                  <div class="col-5 text-right">
+                                    <t t-esc="amount_by_group[3]"/>
+                                  </div>
+                                </div>
+                            
+                              </t>
+                              <t t-else="">
+                                <div class="row"><div class="col-6" style="font-weight:bold;"><t t-esc="amount_by_group[0]"/> : </div> <div class="col-5  text-right"><t t-esc="amount_by_group[3]"/></div></div>
+                              </t>
+                            
+                            </t>
+                            <div class="row"><div class="col-6 border-top border-left border-bottom border-dark" style="font-weight:bold;background-color: #eeeeee">Net Amount Incl. F.E.D + F.T:</div> <div class="col-5 border-top border-bottom border-right border-dark text-right" style="background-color: #eeeeee"><span t-esc="'{:,}'.format(o.amount_total)"/> Rs.</div></div>
+                          </div>
+                          
+                          </table>
+                         
+                      </div>
+                      
+                      <br/>
+                  <div class="row">
+                    <div class="col-12 mx-auto">
+                      
+                      <div class="row border-top border-bottom border-dark">
+                        <div class="col-3 text-center" style="font-weight:bold;align-items: center;">AMOUNT IN WORDS</div>
+                        <div class="col-9"><t if="o.word_num" t-raw="o.word_num"/></div>
+                      </div>
+                    </div>
+                  </div>
+                      
+                    
+  
+                      <div class="footer" style="margin-top:100px">
+  
+                          <!--                        <div  style="  position: absolute;bottom: 0; ">-->
+                          <table class=" col-sm-12 ">
+  
+                              <tr style="text-align:center;">
+  
+                                  <td style="width:15%; border-bottom:1px solid black;">
+                                      <t if="o.user_id.name" t-raw="o.user_id.name"/>
+                                  </td>
+  
+                                  <td style="width:6%;"/>
+  
+                                  <td style="width:15%; border-bottom:1px solid black;">
+                                      <!--                                        <t if="o.user_id.name" t-raw="o.user_id.name"/>-->
+                                  </td>
+  
+                                  <td style="width:6%;"/>
+  
+                                  <td style="width:15%; border-bottom:1px solid black;">
+                                      <!--                                        <t if="o.user_id.name" t-raw="o.user_id.name"/>-->
+                                  </td>
+                                  <td style="width:6%;"/>
+  
+                                  <td style="width:15%; border-bottom:1px solid black;">
+                                      <!--                                        <t if="o.user_id.name" t-raw="o.user_id.name"/>-->
+                                  </td>
+  
+                                  <td style="width:6%;"/>
+  
+                                  <!--<td style="width:15%; border-bottom:1px solid black;">-->
+                                      <!--                                        <t if="o.user_id.name" t-raw="o.user_id.name"/>-->
+                                  <!--</td>-->
+  
+                              </tr>
+                              <tr style="text-align:center;">
+  
+                                  <td>
+                                      Prepared
+                                      <br/>
+                                      by:
+                                  </td>
+  
+                                  <td/>
+  
+                                  <td>
+                                      Checked
+                                      <br/>
+                                      by:
+                                  </td>
+  
+                                  <td/>
+  
+                                  <td>
+                                      Accounts  
+                                  </td>
+                                  <td/>
+  
+                                
+                                  <td>
+                                      Authorised
+                                      <br/>
+                                      Signature
+                                  </td>
+                                  <td/>
+  
+                              </tr>
+                          </table>
+                      </div>
+                </div>
+                  <!--                </t>-->
+            </t>
+        </t>
+
+
+
+
+    </template>
+
+
+</odoo>
