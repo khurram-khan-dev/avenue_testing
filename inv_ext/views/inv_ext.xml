@@ -31,7 +31,7 @@
             
             </xpath>
 
-            <xpath expr="//label[@for='journal_id']" position="after">
+            <xpath expr="//div[@name='journal_div']" position="after">
             
                         <field name="additional_price" />
                         <field name="cost" />
