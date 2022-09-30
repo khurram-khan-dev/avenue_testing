@@ -29,7 +29,13 @@
 
             <xpath expr="//label[@for='amount_total']" position="attributes">
 
-                        <attribute name="string">Commision Amount</attribute>
+                        <attribute name="invisible">1</attribute>
+
+            </xpath>
+            <xpath expr="//field[@name='amount_total']" position="replace">
+                        
+                        <field name="amount_total" invisible='1' />
+                        <field name="custom_amount_total" />
 
             </xpath>
 

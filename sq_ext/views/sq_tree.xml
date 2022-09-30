@@ -1,0 +1,20 @@
+<odoo>
+    <record id="sq_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='amount_total']" position="replace">
+                        
+                        <field name="amount_total" invisible='1' />
+                        <field name="custom_amount_total" />
+
+            </xpath>
+
+
+        
+        
+        </field>
+    </record>
+</odoo>

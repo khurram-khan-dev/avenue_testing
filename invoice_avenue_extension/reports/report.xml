@@ -4,8 +4,7 @@
     <template id="avenue_invoice_report_id">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <!--                <t t-call="web.external_layout">-->
-
+                
                 <div class="header" style="font-size:0.8rem;">
                     
                     
@@ -68,8 +67,8 @@
                           Name:   <t if="o.partner_id.name" t-raw="o.partner_id.name"/>
                         </div>
                         <!--<div class="col-1"></div>-->
-                        <div class="col-6" style="font-size:20px;">
-                          Employee Name: ______________________
+                        <div class="col-5" style="font-size:20px;">
+                          Employee Name:   <t if="o.employee_name" t-raw="o.employee_name"/>
                         </div>
                       </div>
                       
@@ -104,8 +103,8 @@
                           Unit Size:   <t if="o.plot_size" t-raw="o.plot_size"/>
                         </div>
                         <!--<div class="col-1"></div>-->
-                        <div class="col-6" style="font-size:20px;">
-                          Unit Type: _________________________
+                        <div class="col-5" style="font-size:20px;">
+                          Unit Type:   <t if="o.unit_type" t-raw="o.unit_type"/>
                         </div>
                       </div>
                       
@@ -164,7 +163,7 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
-                          Total Payable: __________________________
+                          Total Payable:   <t if="o.total_payable" t-raw="o.total_payable"/>
                         </div>
                         
                       </div>
@@ -190,10 +189,10 @@
                         </div>
                         <div class="col-4" style="font-size:20px;">
 
-                          Amount Due
+                          &#160;&#160;Amount Due
                         </div>
                         <div class="col-3" style="font-size:20px;">
-                          Due Date
+                          &#160;&#160;&#160;&#160;Due Date
                         </div>
                         
                       </div>
@@ -204,11 +203,11 @@
                         <div class="col-3" style="font-size:20px;">
                           Token
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.token_amount" t-raw="o.token_amount"/>
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.token_date" t-raw="o.token_date"/>
                         </div>
                         
                       </div>
@@ -219,11 +218,11 @@
                         <div class="col-3" style="font-size:20px;">
                           1st Deposit
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.f_deposit_amount" t-raw="o.f_deposit_amount"/>
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.f_deposit_date" t-raw="o.f_deposit_date"/>
                         </div>
                         
                       </div>
@@ -234,11 +233,11 @@
                         <div class="col-3" style="font-size:20px;">
                           2nd Deposit
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.s_deposit_amount" t-raw="o.s_deposit_amount"/>
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.s_deposit_date" t-raw="o.s_deposit_date"/>
                         </div>
                         
                       </div>
@@ -249,11 +248,11 @@
                         <div class="col-3" style="font-size:20px;">
                           3rd Deposit
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.t_deposit_amount" t-raw="o.t_deposit_amount"/>
                         </div>
-                        <div class="col-4" style="font-size:20px;">
-                            ___________________________
+                        <div class="col-4" style="font-size:20px; text-align: center;">
+                            <t if="o.t_deposit_date" t-raw="o.t_deposit_date"/>
                         </div>
                         
                       </div>
@@ -278,12 +277,6 @@
                       </div>
                       
                 </div>
-                  <!--                </t>-->
-
-
-
-
-                  <!--                </t>-->
             </t>
         </t>
 

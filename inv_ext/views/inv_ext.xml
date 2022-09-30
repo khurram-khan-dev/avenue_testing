@@ -40,6 +40,41 @@
             
             </xpath>
 
+            <xpath expr="//page[@id='invoice_tab']" position="after">
+                <page name="deposit_schedule" string="Deposit Schedule" >
+
+                    <group>
+                        <group string="Other Info" name="other_info">
+                            <field name="employee_name"/>
+                            <field name="unit_type"/>
+                            <field name="total_payable"/>
+                        </group>
+
+                        <group string="Token" name="token">
+                            <field name="token_amount"/>
+                            <field name="token_date"/>
+                        </group>
+
+                        <group string="1st Deposit" name="f_deposit">
+                            <field name="f_deposit_amount"/>
+                            <field name="f_deposit_date"/>
+                        </group>
+
+                        <group string="2nd Deposit" name="s_deposit">
+                            <field name="s_deposit_amount"/>
+                            <field name="s_deposit_date"/>
+                        </group>
+
+                        <group string="3rd Deposit" name="t_deposit">
+                            <field name="t_deposit_amount"/>
+                            <field name="t_deposit_date"/>
+                        </group>
+
+                    </group>
+
+                </page>
+            </xpath>
+
         </field>
 
     </record>

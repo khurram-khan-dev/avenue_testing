@@ -28,26 +28,36 @@ class SQExtension(models.Model):
     # gross_amount     =   fields.Char(string="Gross Amount",compute="get_gross_amount", store=True)  
     gross_amount     =   fields.Integer(string="Gross Amount",compute="get_gross_amount") 
     gross_amount_final= fields.Integer(string="Gross Amount ") 
+    custom_amount_total = fields.Integer(string="Commision Amount") 
 
+    # @api.onchange('gross_amount','price','cost','additional_price','discount_builder')
     def get_gross_amount(self):
 
         self.gross_amount = (self.price + self.additional_price) - self.cost
         self.gross_amount_final=self.gross_amount
         
-    @api.onchange('gross_amount')
-    def _amount_all(self):
-      
+    @api.onchange('gross_amount','price','cost','additional_price','discount_builder')
+    def _amount_all(self):  
         for order in self:
+            
+            order.get_gross_amount()
             amount_tax = discount = 0.0
             for line in order.order_line:
 
                 discount += line.price_subtotal
                 amount_tax += line.price_tax
 
-            order.update({
+            # order.amount_untaxed = discount
+            # order.amount_tax = amount_tax
+            # order.amount_total = (order.gross_amount + amount_tax) - discount
+
+            order.custom_amount_total = (order.gross_amount + amount_tax) - discount
+            order.amount_total = order.custom_amount_total
+
+            order.write({
                 'amount_untaxed': discount,
                 'amount_tax': amount_tax,
-                'amount_total': (self.gross_amount + amount_tax) - discount,
+                # 'amount_total': (order.gross_amount + amount_tax) - discount,
             })
 
 

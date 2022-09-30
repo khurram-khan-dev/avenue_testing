@@ -16,6 +16,7 @@
     'depends': ['base','sale','account'],
     'data': [
         "views/sq_ext.xml",
+        "views/sq_tree.xml",
     ],
     'demo': [
         

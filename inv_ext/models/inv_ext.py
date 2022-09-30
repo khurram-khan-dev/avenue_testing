@@ -16,6 +16,22 @@ class INExtension(models.Model):
     additional_price    =   fields.Integer(string="Additional price",compute="get_additional")
     discount_builder    =   fields.Integer(string="Discount by Builder",compute="get_dis_builder")
     gross_amount        =   fields.Integer(string="Gross Amount",compute="get_gross_amount")
+
+    employee_name       =   fields.Char(string="Employee Name")
+    unit_type           =   fields.Char(string="Unit Type")
+    total_payable       =   fields.Integer(string="Total Payable")
+
+    token_amount        =   fields.Integer(string="Amount Due")
+    token_date          =   fields.Date(string="Due Date")
+
+    f_deposit_amount        =   fields.Integer(string="Amount Due")
+    f_deposit_date          =   fields.Date(string="Due Date")
+
+    s_deposit_amount        =   fields.Integer(string="Amount Due")
+    s_deposit_date          =   fields.Date(string="Due Date")
+
+    t_deposit_amount        =   fields.Integer(string="Amount Due")
+    t_deposit_date          =   fields.Date(string="Due Date")
     
 
     
