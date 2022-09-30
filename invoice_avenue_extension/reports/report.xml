@@ -11,7 +11,7 @@
                       <div class="row p-2">
                         
                         <div class="col-2">
-                          <img t-if="o.company_id.logo_web" t-att-src="image_data_uri(o.company_id.logo_web)" style="position:absolute;top:10px;left:370px;width:160pt;height:92pt;" alt="company logo"/>
+                          <img t-if="o.company_id.logo_web" t-att-src="image_data_uri(o.company_id.logo_web)" style="position:absolute;top:10px;left:350px;width:160pt;height:92pt;" alt="company logo"/>
                           <!--<img t-if="o.company_id.logo_web" t-att-src="image_data_uri(o.company_id.logo_web)" style="position:absolute;top:10px;left:370px;max-height: 45px;" alt="company log"/>                        -->
                         </div>
                         
@@ -39,14 +39,14 @@
                       <div class="row p-2">
                         <div class="col-8"/>
                         <div class="col-4" style="font-size:20px;">
-                          Date: <t if="o.invoice_date" t-raw="o.invoice_date"/>
+                          Date: <u><t if="o.invoice_date" t-raw="o.invoice_date"/></u>
                         </div>
                       </div>
 
                       <div class="row p-2">
                         <div class="col-8"/>
                         <div class="col-4" style="font-size:20px;">
-                          Ref: <t if="o.internal_ref" t-raw="o.internal_ref"/>
+                          Ref: <u><t if="o.internal_ref" t-raw="o.internal_ref"/></u>
                         </div>
                       </div>
                       
@@ -64,11 +64,11 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Name:   <t if="o.partner_id.name" t-raw="o.partner_id.name"/>
+                          Name:<u>   <t if="o.partner_id.name" t-raw="o.partner_id.name"/>&#160;&#160;&#160;</u>
                         </div>
                         <!--<div class="col-1"></div>-->
                         <div class="col-5" style="font-size:20px;">
-                          Employee Name:   <t if="o.employee_name" t-raw="o.employee_name"/>
+                          Employee Name:<u>   <t if="o.employee_name" t-raw="o.employee_name"/>&#160;&#160;&#160;</u>
                         </div>
                       </div>
                       
@@ -77,7 +77,7 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
-                          Address:    <t if="o.partner_id" t-raw="o.partner_id.contact_address_complete"/>
+                          Address:<u>   <t if="o.partner_id" t-raw="o.partner_id.contact_address_complete"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
@@ -87,11 +87,11 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Project:   <t if="o.project_name" t-raw="o.project_name"/>
+                          Project:<u>   <t if="o.project_name" t-raw="o.project_name"/>&#160;&#160;&#160;</u>
                         </div>
                         <!--<div class="col-1"></div>-->
                         <div class="col-5" style="font-size:20px;">
-                          City:   <t if="o.partner_id" t-raw="o.partner_id.city"/>
+                          City:<u>   <t if="o.partner_id" t-raw="o.partner_id.city"/>&#160;&#160;&#160;</u>
                         </div>
                       </div>
                       
@@ -100,11 +100,11 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Unit Size:   <t if="o.plot_size" t-raw="o.plot_size"/>
+                          Unit Size:<u>   <t if="o.plot_size" t-raw="o.plot_size"/>&#160;&#160;&#160;</u>
                         </div>
                         <!--<div class="col-1"></div>-->
                         <div class="col-5" style="font-size:20px;">
-                          Unit Type:   <t if="o.unit_type" t-raw="o.unit_type"/>
+                          Unit Type:<u>   <t if="o.unit_type" t-raw="o.unit_type"/>&#160;&#160;&#160;</u>
                         </div>
                       </div>
                       
@@ -124,7 +124,7 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
-                          Cost Payable:   <t if="o.cost" t-raw="o.cost"/>
+                          Cost Payable:<u>   <t if="o.cost" t-raw="o.cost"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
@@ -134,11 +134,11 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-5" style="font-size:20px;">
-                          Additional Cost:   <t if="o.additional_price" t-raw="o.additional_price"/>
+                          Additional Cost:<u>   <t if="o.additional_price" t-raw="o.additional_price"/>&#160;&#160;&#160;</u>
                         </div>
                         <!--<div class="col-1"></div>-->
                         <div class="col-5" style="font-size:20px;">
-                          Additional Detail:   <t if="o.ref" t-raw="o.ref"/>
+                          Additional Detail:<u>&#160;<t if="o.ref" t-raw="o.ref"/>&#160;</u>
                         </div>
                       </div>
                       
@@ -148,11 +148,11 @@
                         <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
                           <t t-if="o.discount_builder">
-                              Discount By Builder:   <t if="o.discount_builder" t-raw="o.discount_builder"/>
+                              Discount By Builder:<u>   <t if="o.discount_builder" t-raw="o.discount_builder"/>&#160;&#160;&#160;</u>
                           </t>
                                     
                           <t t-if="not o.discount_builder">
-                              Discount By Avenue:   <t if="o.invoice_line_ids[0].price_subtotal" t-raw="o.invoice_line_ids[0].price_subtotal"/>
+                              Discount By Avenue:<u>   <t if="o.invoice_line_ids[0].price_subtotal" t-raw="o.invoice_line_ids[0].price_subtotal"/>&#160;&#160;&#160;</u>
                           </t>
                         </div>
                         
@@ -163,7 +163,7 @@
                       <div class="row p-2">
                         <div class="col-1"/>
                         <div class="col-11" style="font-size:20px;">
-                          Total Payable:   <t if="o.total_payable" t-raw="o.total_payable"/>
+                          Total Payable:<u>   <t if="o.total_payable" t-raw="o.total_payable"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
@@ -189,10 +189,10 @@
                         </div>
                         <div class="col-4" style="font-size:20px;">
 
-                          &#160;&#160;Amount Due
+                            Amount Due
                         </div>
                         <div class="col-3" style="font-size:20px;">
-                          &#160;&#160;&#160;&#160;Due Date
+                              Due Date
                         </div>
                         
                       </div>
@@ -204,10 +204,10 @@
                           Token
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.token_amount" t-raw="o.token_amount"/>
+                          <u>  <t if="o.token_amount" t-raw="o.token_amount"/>&#160;&#160;&#160;</u>
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.token_date" t-raw="o.token_date"/>
+                          <u>  <t if="o.token_date" t-raw="o.token_date"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
@@ -219,10 +219,10 @@
                           1st Deposit
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.f_deposit_amount" t-raw="o.f_deposit_amount"/>
+                          <u>  <t if="o.f_deposit_amount" t-raw="o.f_deposit_amount"/>&#160;&#160;&#160;</u>
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.f_deposit_date" t-raw="o.f_deposit_date"/>
+                          <u>  <t if="o.f_deposit_date" t-raw="o.f_deposit_date"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
@@ -234,10 +234,10 @@
                           2nd Deposit
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.s_deposit_amount" t-raw="o.s_deposit_amount"/>
+                          <u>  <t if="o.s_deposit_amount" t-raw="o.s_deposit_amount"/>&#160;&#160;&#160;</u>
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.s_deposit_date" t-raw="o.s_deposit_date"/>
+                          <u>  <t if="o.s_deposit_date" t-raw="o.s_deposit_date"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
@@ -249,15 +249,14 @@
                           3rd Deposit
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.t_deposit_amount" t-raw="o.t_deposit_amount"/>
+                          <u>  <t if="o.t_deposit_amount" t-raw="o.t_deposit_amount"/>&#160;&#160;&#160;</u>
                         </div>
                         <div class="col-4" style="font-size:20px; text-align: center;">
-                            <t if="o.t_deposit_date" t-raw="o.t_deposit_date"/>
+                          <u>  <t if="o.t_deposit_date" t-raw="o.t_deposit_date"/>&#160;&#160;&#160;</u>
                         </div>
                         
                       </div>
-                      <br/>
-                      <br/>
+                      
                       <br/>
                       
                       <div class="row p-2">
