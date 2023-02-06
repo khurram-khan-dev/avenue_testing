@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="fbr_wizard_view_form" model="ir.ui.view">
+            <field name="name">fbr_wizard_view_form.form</field>
+            <field name="model">fbr.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Change FBR Mode">
+                    <group>
+                        <field name="url"/>
+                    </group>
+                    <footer>
+                        <button name="action_fbr_change" type="object" string="Change URL" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_change_fbr_mode" model="ir.actions.act_window">
+            <field name="name">Change FBR Mode</field>
+            <field name="res_model">fbr.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_change_fbr_mode"
+            action="action_change_fbr_mode"
+            parent="point_of_sale.menu_point_config_product"
+            sequence="5"
+            groups="pk_pos_invoice_cloud.group_fbr_mode"/>
+
+    </data>
+</odoo>

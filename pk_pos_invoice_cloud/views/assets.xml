@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_for_pk_pos_invoice_cloude" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pk_pos_invoice_cloud/static/src/js/models.js"/>
+                <script type="text/javascript" src="/pk_pos_invoice_cloud/static/src/js/PaymentScreen.js"/>
+                <script type="text/javascript" src="/pk_pos_invoice_cloud/static/src/js/ReceiptScreen.js"/>
+                <script type="text/javascript" src="/pk_pos_invoice_cloud/static/src/js/jquery.qrcode.min.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="group_fbr_mode" model="res.groups">
+            <field name="name">Change FBR Mode</field>
+        </record>
+        <record id="base.group_system" model="res.groups">
+	        <field name="implied_ids" eval="[(4, ref('pk_pos_invoice_cloud.group_fbr_mode'))]"/>
+        </record>
+    </data>
+</odoo>

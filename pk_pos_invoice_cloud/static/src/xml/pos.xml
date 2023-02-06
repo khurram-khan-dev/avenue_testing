@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+    <xpath expr="//div[hasclass('client-details-right')]" position="inside">
+        <div class='client-detail'>
+            <span class='label'>NTN</span>
+            <input class="detail client-buyer_ntn" name="buyer_ntn"
+               t-on-change="captureChange" t-att-value="props.partner.buyer_ntn || ''"/>
+        </div>
+        <div class='client-detail'>
+            <span class='label'>CNIC</span>
+            <input class="detail client-buyer_cnic" name="buyer_cnic"
+               t-on-change="captureChange" t-att-value="props.partner.buyer_cnic || ''"/>
+        </div>
+    </xpath>
+    </t>
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-customer')]" position="after">
+            <table class="pos-cloud-customer">
+                <t t-if="receipt.client and receipt.orderlines.length">
+                    <tr>
+                        <th style="font-size: 12px;">CNIC </th>
+                        <td style="font-size: 12px;"><span t-esc="receipt.buyer_cnic or ' '"/></td>
+                    </tr>
+                </t>
+            </table>
+            <br/>
+        </xpath>
+        <xpath expr="//div[hasclass('before-footer')]" position="after">
+            <t t-if="receipt.orderlines.length">
+                <div class="line"></div>
+                <div class="pos-receipt-contact">
+                    <img src="/pk_pos_invoice_cloud/static/img/fbr_logo.jpg" width="130" height="120"></img>
+                </div>
+                <div class="pos-receipt-contact">
+                    <div id="qr-example"></div><br/><br/>
+                    <strong><span>FBR Invoice # <span id="invoice_number"/></span></strong> <t t-esc="receipt.invoice_number"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+    
+<!--     <t t-extend="OrderReceiptReprint">
+        <t t-jquery=".pos-customer" t-operation="after">
+            <table class="pos-cloud-customer">
+                <t t-if="customer">
+                    <tr>
+                        <th style="font-size: 12px;">CNIC </th>
+                        <td style="font-size: 12px;"><span t-esc="customer.buyer_cnic or ' '"/></td>
+                    </tr>
+                </t>
+            </table>
+            <br/>
+        </t>
+        <t t-jquery=".footer_date_time" t-operation="after">
+            <div class="pos-receipt-contact">
+                <img src="/pk_pos_invoice_cloud/static/img/fbr_logo.jpg" width="130" height="120"></img>
+            </div>
+            <div class="pos-receipt-contact">
+                <div id="qr-example"></div><br/><br/>
+                <strong><span>FBR Invoice # <span id="invoice_number"/></span></strong>
+            </div>
+            <div class="line"></div>
+        </t>
+    </t> -->
+</templates>

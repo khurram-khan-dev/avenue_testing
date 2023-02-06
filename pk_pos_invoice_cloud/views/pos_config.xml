@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="res_partner_pk_pos_order_clode" model="ir.ui.view">
+	        <field name="name">pos.order.form</field>
+	        <field name="model">pos.order</field>
+	        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+	        <field name="arch" type="xml">
+	        	<xpath expr="//button[@name='refund']" position="after">
+                    <button class="btn btn-primary" name="send_invoice_data" string="Request FBR" type="object" context="{'from_button': True}" attrs="{'invisible': [('fbr_sync', '=', True)]}"/>
+                </xpath>
+	            <xpath expr="//page[@name='extra']//group" position="after">
+					<group string="Invoice Details">
+						<group>
+							<field name="invoice_number" readonly="1"/>
+							<field name="res_message" readonly="1"/>
+							<field name="fbr_sync" readonly="1"/>
+						</group>
+					</group>
+				</xpath>
+	        </field>
+	    </record>
+	    <record id="view_pos_order_tree_cloud" model="ir.ui.view">
+	        <field name="name">pos.order.form.inherit.cloud</field>
+	        <field name="model">pos.order</field>
+	        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+	        <field name="arch" type="xml">
+	        	<field name="name" position="after">
+	        		<field name="fbr_sync"/>
+	        	</field>
+	        </field>
+	    </record>
+
+	    <record id="res_partner_pk_ps_payment_clode" model="ir.ui.view">
+	        <field name="name">pos.payment.method.form</field>
+	        <field name="model">pos.payment.method</field>
+	        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+	        <field name="arch" type="xml">
+	            <field name="cash_journal_id" position="after">
+	            	<field name="payment_mode" required='1'/>
+	            </field>
+	        </field>
+	    </record>
+
+		<record id="inherit_view_pk_invoice_config_clode_reports" model="ir.ui.view">
+			<field name="name">inherit.view.pos.config.reports</field>
+			<field name="model">pos.config</field>
+			<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//div[@id='posbox_reference']" position="after">
+					<h2>POS FBR Configuration</h2>
+                    <div class="row mt16 o_settings_container">
+	                    <div class="col-12 col-lg-6 o_setting_box">
+	                        <div class="o_setting_right_pane">
+	                            <div class="content-group">
+	                            	<div class="row mt16">
+	                                    <label string="URL" for="url" class="col-lg-3"/>
+	                                    <field name="url" required="1" widget="url"/>
+	                                </div>
+	                                <div class="row mt16">
+	                                    <label string="Local Service URL" for="url" class="col-lg-3"/>
+	                                    <field name="local_url" widget="url"/>
+	                                </div>
+	                                <div class="row mt16">
+	                                    <label string="FBR POS ID" for="pos_machine_id" class="col-lg-3"/>
+	                                    <field name="pos_machine_id" required="1"/>
+	                                </div>
+	                                <div class="row mt16">
+	                                    <label string="FBR Limit" for="fbr_limit" class="col-lg-3"/>
+	                                    <field name="fbr_limit" required="1"/>
+	                                </div>
+	                                <div class="row mt16">
+	                                    <label string="Bearer" for="bearer" class="col-lg-3"/>
+	                                    <field name="bearer" required="1"/>
+	                                </div>
+	                                <div class="row mt16">
+	                                    <label string="POS System ID" for="pos_system_id" class="col-lg-3"/>
+	                                    <field name="pos_system_id" readonly='1'/>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+				</xpath>
+			</field>
+		</record>
+
+<!-- 		<record id="res_partner_pos_order_form_clode" model="ir.ui.view">
+	        <field name="name">pos.payment.method.form</field>
+	        <field name="model">pos.order</field>
+	        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+	        <field name="arch" type="xml">
+	        	<xpath expr="//button[@name='refund']" position="after">
+                    <button name="send_invoice_data" string="Request FBR" type="object" context="{'from_button': True}"/>
+                </xpath>
+	        </field>
+	    </record> -->
+
+	</data>
+</odoo>
